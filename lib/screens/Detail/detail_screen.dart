@@ -47,10 +47,10 @@ class _DetailScreenState extends State<DetailScreen> {
                 children: List.generate(
                   5,
                   (index) => AnimatedContainer(
-                    duration: Duration(microseconds: 300),
+                    duration: const Duration(microseconds: 300),
                     width: currentImage == index ? 15 : 8,
                     height: 8,
-                    margin: EdgeInsets.only(right: 3),
+                    margin: const EdgeInsets.only(right: 3),
                     decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(10),
                         color: currentImage == index
@@ -60,17 +60,17 @@ class _DetailScreenState extends State<DetailScreen> {
                   ),
                 ),
               ),
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
               Container(
                 width: double.infinity,
-                decoration: BoxDecoration(
+                decoration: const BoxDecoration(
                   color: Colors.white,
                   borderRadius: BorderRadius.only(
                     topRight: Radius.circular(40),
                     topLeft: Radius.circular(40),
                   ),
                 ),
-                padding: EdgeInsets.only(
+                padding: const EdgeInsets.only(
                   left: 20,
                   right: 20,
                   top: 20,
@@ -81,13 +81,13 @@ class _DetailScreenState extends State<DetailScreen> {
                   children: [
                     //product name, price, rating and seller
                     ItemDetails(product: widget.product),
-                    SizedBox(height: 20),
-                    Text(
+                    const SizedBox(height: 20),
+                    const Text(
                       "Color",
                       style:
                           TextStyle(fontWeight: FontWeight.bold, fontSize: 22),
                     ),
-                    SizedBox(height: 20),
+                    const SizedBox(height: 20),
                     Row(
                       children: List.generate(
                         widget.product.colors.length,
@@ -98,7 +98,7 @@ class _DetailScreenState extends State<DetailScreen> {
                             });
                           },
                           child: AnimatedContainer(
-                            duration: Duration(milliseconds: 300),
+                            duration: const Duration(milliseconds: 300),
                             width: 40,
                             height: 65,
                             decoration: BoxDecoration(
@@ -113,9 +113,9 @@ class _DetailScreenState extends State<DetailScreen> {
                                   : null,
                             ),
                             padding: currentColor == index
-                                ? EdgeInsets.all(2)
+                                ? const EdgeInsets.all(2)
                                 : null,
-                            margin: EdgeInsets.only(right: 15),
+                            margin: const EdgeInsets.only(right: 15),
                             child: Container(
                               width: 35,
                               height: 35,
@@ -128,7 +128,7 @@ class _DetailScreenState extends State<DetailScreen> {
                         ),
                       ),
                     ),
-                    SizedBox(height: 20),
+                    const SizedBox(height: 20),
                     // description
                     Description(description: widget.product.description)
                   ],

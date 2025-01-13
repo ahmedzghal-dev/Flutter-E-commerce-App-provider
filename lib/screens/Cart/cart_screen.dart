@@ -32,34 +32,34 @@ class _CartScreenState extends State<CartScreen> {
 
     return Scaffold(
       // total check out
-      bottomSheet: CheckOutBox(),
+      bottomSheet: const CheckOutBox(),
       backgroundColor: kcontentColor,
       body: SafeArea(
         child: Column(
           children: [
             Padding(
-              padding: EdgeInsets.all(15),
+              padding: const EdgeInsets.all(15),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   IconButton(
                     style: IconButton.styleFrom(
                       backgroundColor: Colors.white,
-                      padding: EdgeInsets.all(15),
+                      padding: const EdgeInsets.all(15),
                     ),
                     onPressed: () {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => BottomNavBar(),
+                          builder: (context) => const BottomNavBar(),
                         ),
                       );
                     },
-                    icon: Icon(Icons.arrow_back_ios),
+                    icon: const Icon(Icons.arrow_back_ios),
                   ),
-                  Text(
+                  const Text(
                     "My Cart",
-                    style: TextStyle(
+                    style: const TextStyle(
                       fontWeight: FontWeight.bold,
                       fontSize: 25,
                     ),
@@ -75,14 +75,14 @@ class _CartScreenState extends State<CartScreen> {
                   return Stack(
                     children: [
                       Padding(
-                        padding: EdgeInsets.all(15),
+                        padding: const EdgeInsets.all(15),
                         child: Container(
                           width: double.infinity,
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(20),
                             color: Colors.white,
                           ),
-                          padding: EdgeInsets.all(20),
+                          padding: const EdgeInsets.all(20),
                           child: Row(
                             children: [
                               Container(
@@ -92,21 +92,21 @@ class _CartScreenState extends State<CartScreen> {
                                   color: kcontentColor,
                                   borderRadius: BorderRadius.circular(20),
                                 ),
-                                padding: EdgeInsets.all(10),
+                                padding: const EdgeInsets.all(10),
                                 child: Image.asset(cartItem.image),
                               ),
-                              SizedBox(width: 10),
+                              const SizedBox(width: 10),
                               Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   Text(
                                     cartItem.title,
-                                    style: TextStyle(
+                                    style: const TextStyle(
                                       fontWeight: FontWeight.bold,
                                       fontSize: 16,
                                     ),
                                   ),
-                                  SizedBox(height: 5),
+                                  const SizedBox(height: 5),
                                   Text(
                                     cartItem.category,
                                     style: TextStyle(
@@ -115,10 +115,10 @@ class _CartScreenState extends State<CartScreen> {
                                       color: Colors.grey.shade500,
                                     ),
                                   ),
-                                  SizedBox(height: 10),
+                                  const SizedBox(height: 10),
                                   Text(
                                     "\$${cartItem.price}",
-                                    style: TextStyle(
+                                    style: const TextStyle(
                                       fontWeight: FontWeight.bold,
                                       fontSize: 14,
                                     ),
@@ -140,13 +140,13 @@ class _CartScreenState extends State<CartScreen> {
                                 finalList.removeAt(index);
                                 setState(() {});
                               },
-                              icon: Icon(
+                              icon: const Icon(
                                 Icons.delete,
                                 color: Colors.red,
                                 size: 22,
                               ),
                             ),
-                            SizedBox(height: 10),
+                            const SizedBox(height: 10),
                             Container(
                               height: 40,
                               decoration: BoxDecoration(
@@ -159,19 +159,19 @@ class _CartScreenState extends State<CartScreen> {
                               ),
                               child: Row(
                                 children: [
-                                  SizedBox(width: 10),
+                                  const SizedBox(width: 10),
                                   productQuantity(Icons.add, index),
-                                  SizedBox(width: 10),
+                                  const SizedBox(width: 10),
                                   Text(
                                     cartItem.quantity.toString(),
-                                    style: TextStyle(
+                                    style: const TextStyle(
                                       fontWeight: FontWeight.bold,
                                       color: Colors.black,
                                     ),
                                   ),
-                                  SizedBox(width: 10),
+                                  const SizedBox(width: 10),
                                   productQuantity(Icons.remove, index),
-                                  SizedBox(width: 10),
+                                  const SizedBox(width: 10),
                                 ],
                               ),
                             ),

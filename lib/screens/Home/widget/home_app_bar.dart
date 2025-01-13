@@ -14,7 +14,7 @@ class CustomAppBar extends StatelessWidget {
         IconButton(
           style: IconButton.styleFrom(
             backgroundColor: kcontentColor,
-            padding: EdgeInsets.all(20),
+            padding: const EdgeInsets.all(20),
           ),
           onPressed: () {},
           icon: Image.asset(
@@ -25,11 +25,11 @@ class CustomAppBar extends StatelessWidget {
         IconButton(
           style: IconButton.styleFrom(
             backgroundColor: kcontentColor,
-            padding: EdgeInsets.all(20),
+            padding: const EdgeInsets.all(20),
           ),
           onPressed: () {},
           iconSize: 30,
-          icon: Icon(Icons.notifications_outlined),
+          icon: const Icon(Icons.notifications_outlined),
         ),
       ],
     );

@@ -37,10 +37,10 @@ class ImageSlider extends StatelessWidget {
             children: List.generate(
               5,
               (index) => AnimatedContainer(
-                duration: Duration(microseconds: 300),
+                duration: const Duration(microseconds: 300),
                 width: currentSlide == index ? 15 : 8,
                 height: 8,
-                margin: EdgeInsets.only(right: 3),
+                margin: const EdgeInsets.only(right: 3),
                 decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(10),
                     color: currentSlide == index

@@ -13,18 +13,18 @@ class MySearchBar extends StatelessWidget {
         color: kcontentColor,
         borderRadius: BorderRadius.circular(20),
       ),
-      padding: EdgeInsets.symmetric(horizontal: 25, vertical: 5),
+      padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 5),
       child: Row(
         children: [
-          Icon(
+          const Icon(
             Icons.search_outlined,
             color: Colors.grey,
             size: 30,
           ),
-          SizedBox(width: 10),
-          Flexible(
-            child: TextField(
-              decoration: InputDecoration(
+          const SizedBox(width: 10),
+          const Flexible(
+            child:  TextField(
+              decoration:  InputDecoration(
                 hintText: "Search...",
                 border: InputBorder.none,
               ),
@@ -37,7 +37,7 @@ class MySearchBar extends StatelessWidget {
           ),
           IconButton(
             onPressed: () {},
-            icon: Icon(
+            icon: const Icon(
               Icons.tune,
               color: Colors.grey,
             ),

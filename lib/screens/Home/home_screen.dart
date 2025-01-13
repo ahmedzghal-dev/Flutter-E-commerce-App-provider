@@ -30,17 +30,17 @@ class _HomeScreenState extends State<HomeScreen> {
       backgroundColor: Colors.white,
       body: SingleChildScrollView(
         child: Padding(
-          padding: EdgeInsets.all(20),
+          padding: const EdgeInsets.all(20),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              SizedBox(height: 25),
+              const SizedBox(height: 25),
               // custom app bar
               const CustomAppBar(),
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
               // custom search bar
               const MySearchBar(),
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
               // image slider
               ImageSlider(
                 currentSlide: currentSlide,
@@ -53,7 +53,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 },
               ),
 
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
               // categorie selection
               SizedBox(
                 height: 150,
@@ -68,7 +68,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         });
                       },
                       child: Container(
-                        padding: EdgeInsets.all(15),
+                        padding: const EdgeInsets.all(15),
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(15),
                           color: selectedIndex == index
@@ -90,7 +90,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             const SizedBox(height: 5),
                             Text(
                               categories[index].title,
-                              style: TextStyle(
+                              style: const TextStyle(
                                 fontSize: 16,
                                 fontWeight: FontWeight.bold,
                               ),
@@ -102,9 +102,9 @@ class _HomeScreenState extends State<HomeScreen> {
                   },
                 ),
               ),
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
               if (selectedIndex == 0)
-                Row(
+                const Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(
@@ -126,9 +126,9 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
               // Shopping items
               GridView.builder(
-                physics: NeverScrollableScrollPhysics(),
+                physics: const NeverScrollableScrollPhysics(),
                 shrinkWrap: true,
-                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                   crossAxisCount: 2,
                   childAspectRatio: 0.72,
                   crossAxisSpacing: 20,

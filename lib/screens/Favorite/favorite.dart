@@ -18,7 +18,7 @@ class _FavoriteState extends State<Favorite> {
       backgroundColor: kcontentColor,
       appBar: AppBar(
         backgroundColor: kcontentColor,
-        title: Text(
+        title: const Text(
           "Favorite",
           style: TextStyle(fontWeight: FontWeight.bold),
         ),
@@ -35,14 +35,14 @@ class _FavoriteState extends State<Favorite> {
                 return Stack(
                   children: [
                     Padding(
-                      padding: EdgeInsets.all(15),
+                      padding: const EdgeInsets.all(15),
                       child: Container(
                         width: double.infinity,
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(20),
                           color: Colors.white,
                         ),
-                        padding: EdgeInsets.all(10),
+                        padding: const EdgeInsets.all(10),
                         child: Row(
                           children: [
                             Container(
@@ -52,21 +52,21 @@ class _FavoriteState extends State<Favorite> {
                                 color: kcontentColor,
                                 borderRadius: BorderRadius.circular(20),
                               ),
-                              padding: EdgeInsets.all(10),
+                              padding: const EdgeInsets.all(10),
                               child: Image.asset(favoriteItems.image),
                             ),
-                            SizedBox(width: 10),
+                            const SizedBox(width: 10),
                             Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Text(
                                   favoriteItems.title,
-                                  style: TextStyle(
+                                  style: const TextStyle(
                                     fontWeight: FontWeight.bold,
                                     fontSize: 16,
                                   ),
                                 ),
-                                SizedBox(height: 5),
+                                const SizedBox(height: 5),
                                 Text(
                                   favoriteItems.category,
                                   style: TextStyle(
@@ -75,10 +75,10 @@ class _FavoriteState extends State<Favorite> {
                                     color: Colors.grey.shade400,
                                   ),
                                 ),
-                                SizedBox(height: 10),
+                                const SizedBox(height: 10),
                                 Text(
                                   "\$${favoriteItems.price}",
-                                  style: TextStyle(
+                                  style: const TextStyle(
                                     fontWeight: FontWeight.bold,
                                     fontSize: 14,
                                   ),
@@ -100,7 +100,7 @@ class _FavoriteState extends State<Favorite> {
                               finalList.removeAt(index);
                               setState(() {});
                             },
-                            icon: Icon(
+                            icon: const Icon(
                               Icons.delete,
                               color: Colors.red,
                               size: 22,

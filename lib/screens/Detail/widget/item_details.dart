@@ -13,7 +13,7 @@ class ItemDetails extends StatelessWidget {
       children: [
         Text(
           product.title,
-          style: TextStyle(
+          style: const TextStyle(
             fontWeight: FontWeight.w800,
             fontSize: 25,
           ),
@@ -25,12 +25,12 @@ class ItemDetails extends StatelessWidget {
               children: [
                 Text(
                   "\$${product.price}",
-                  style: TextStyle(
+                  style: const TextStyle(
                     fontWeight: FontWeight.w800,
                     fontSize: 25,
                   ),
                 ),
-                SizedBox(height: 10),
+                const SizedBox(height: 10),
                 // rating
                 Row(
                   children: [
@@ -42,18 +42,18 @@ class ItemDetails extends StatelessWidget {
                         color: kprimaryColor,
                       ),
                       alignment: Alignment.center,
-                      padding: EdgeInsets.symmetric(horizontal: 5),
+                      padding: const EdgeInsets.symmetric(horizontal: 5),
                       child: Row(
                         children: [
-                          Icon(
+                          const Icon(
                             Icons.star,
                             size: 14,
                             color: Colors.white,
                           ),
-                          SizedBox(width: 3),
+                          const SizedBox(width: 3),
                           Text(
                             product.rate.toString(),
-                            style: TextStyle(
+                            style: const TextStyle(
                               fontWeight: FontWeight.w800,
                               color: Colors.white,
                               fontSize: 13,
@@ -62,26 +62,26 @@ class ItemDetails extends StatelessWidget {
                         ],
                       ),
                     ),
-                    SizedBox(width: 5),
+                    const SizedBox(width: 5),
                     Text(
                       product.review,
-                      style: TextStyle(color: Colors.grey, fontSize: 15),
+                      style: const TextStyle(color: Colors.grey, fontSize: 15),
                     ),
                   ],
                 )
               ],
             ),
-            Spacer(),
+            const Spacer(),
             Text.rich(
               TextSpan(
                 children: [
-                  TextSpan(
+                  const TextSpan(
                     text: "Seller: ",
-                    style: TextStyle(fontSize: 16),
+                    style: const TextStyle(fontSize: 16),
                   ),
                   TextSpan(
                     text: product.seller,
-                    style: TextStyle(
+                    style: const TextStyle(
                       fontSize: 16,
                       fontWeight: FontWeight.bold,
                     ),

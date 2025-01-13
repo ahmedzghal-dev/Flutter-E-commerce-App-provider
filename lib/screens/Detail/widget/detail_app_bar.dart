@@ -12,33 +12,33 @@ class DetailAppBar extends StatelessWidget {
     final provider = FavoriteProvider.of(context);
 
     return Padding(
-      padding: EdgeInsets.all(10),
+      padding: const EdgeInsets.all(10),
       child: Row(
         children: [
           IconButton(
             style: IconButton.styleFrom(
               backgroundColor: Colors.white,
-              padding: EdgeInsets.all(15),
+              padding: const EdgeInsets.all(15),
             ),
             onPressed: () {
               Navigator.pop(context);
             },
-            icon: Icon(Icons.arrow_back_ios),
+            icon: const Icon(Icons.arrow_back_ios),
           ),
-          Spacer(),
+          const Spacer(),
           IconButton(
             style: IconButton.styleFrom(
               backgroundColor: Colors.white,
-              padding: EdgeInsets.all(15),
+              padding: const EdgeInsets.all(15),
             ),
             onPressed: () {},
-            icon: Icon(Icons.share),
+            icon: const Icon(Icons.share),
           ),
-          SizedBox(width: 10),
+          const SizedBox(width: 10),
           IconButton(
             style: IconButton.styleFrom(
               backgroundColor: Colors.white,
-              padding: EdgeInsets.all(15),
+              padding: const EdgeInsets.all(15),
             ),
             onPressed: () {
               provider.toggleFavorite(product);

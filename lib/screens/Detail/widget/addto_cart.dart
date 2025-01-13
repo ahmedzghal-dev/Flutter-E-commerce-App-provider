@@ -18,14 +18,14 @@ class _AddToCartState extends State<AddToCart> {
   Widget build(BuildContext context) {
     final provider = CartProvider.of(context);
     return Padding(
-      padding: EdgeInsets.symmetric(horizontal: 15, vertical: 10),
+      padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
       child: Container(
         height: 80,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(50),
           color: Colors.black,
         ),
-        padding: EdgeInsets.symmetric(horizontal: 15),
+        padding: const EdgeInsets.symmetric(horizontal: 15),
         alignment: Alignment.center,
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -46,26 +46,26 @@ class _AddToCartState extends State<AddToCart> {
                         });
                       }
                     },
-                    icon: Icon(Icons.remove),
+                    icon: const Icon(Icons.remove),
                     color: Colors.white,
                     iconSize: 18,
                   ),
-                  SizedBox(width: 3),
+                  const SizedBox(width: 3),
                   Text(
                     currentIndex.toString(),
-                    style: TextStyle(
+                    style: const TextStyle(
                       fontWeight: FontWeight.bold,
                       color: Colors.white,
                     ),
                   ),
-                  SizedBox(width: 3),
+                  const SizedBox(width: 3),
                   IconButton(
                     onPressed: () {
                       setState(() {
                           currentIndex++;
                         });
                     },
-                    icon: Icon(Icons.add),
+                    icon: const Icon(Icons.add),
                     color: Colors.white,
                     iconSize: 18,
                   ),
@@ -95,10 +95,10 @@ class _AddToCartState extends State<AddToCart> {
                   borderRadius: BorderRadius.circular(50),
                 ),
                 alignment: Alignment.center,
-                padding: EdgeInsets.symmetric(horizontal: 50),
-                child: Text(
+                padding: const EdgeInsets.symmetric(horizontal: 50),
+                child: const Text(
                   'Add To Cart',
-                  style: TextStyle(
+                  style: const TextStyle(
                     color: Colors.white,
                     fontWeight: FontWeight.bold,
                     fontSize: 15,
