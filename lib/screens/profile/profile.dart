@@ -1,16 +1,20 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_e_commerce_app_provider/Provider/theme_provider.dart';
+import 'package:provider/provider.dart';
 
 class Profile extends StatelessWidget {
   const Profile({super.key});
 
   @override
   Widget build(BuildContext context) {
+    ThemeProvider themeProvider = Provider.of<ThemeProvider>(context);
+
     Size size = MediaQuery.of(context).size;
     return Scaffold(
       body: Stack(
         children: [
           Image.asset(
-            "images/profile3.png",
+            "assets/profile3.png",
             fit: BoxFit.cover,
             height: size.height,
             width: size.width,
@@ -20,13 +24,13 @@ class Profile extends StatelessWidget {
             child: Align(
               alignment: Alignment.bottomCenter,
               child: Card(
+                color: themeProvider.getColorFromTheme('colorScheme.cardColor'),
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(15),
                 ),
                 child: Container(
-                  height: size.height * 0.4,
-                  padding:
-                      const EdgeInsets.symmetric(horizontal: 8, vertical: 15),
+                  height: size.height * 0.45,
+                  padding: const EdgeInsets.symmetric(vertical: 15),
                   child: Column(
                     children: [
                       Padding(
@@ -42,7 +46,7 @@ class Profile extends StatelessWidget {
                                     const CircleAvatar(
                                       radius: 42,
                                       backgroundImage:
-                                          AssetImage("images/profile3.png"),
+                                          AssetImage("assets/profile3.png"),
                                     ),
                                     Positioned(
                                       bottom: 0,
@@ -85,7 +89,8 @@ class Profile extends StatelessWidget {
                                     Container(
                                       decoration: BoxDecoration(
                                         borderRadius: BorderRadius.circular(20),
-                                        color: Colors.pink,
+                                        color: themeProvider.getColorFromTheme(
+                                            'colorScheme.containerColor'),
                                       ),
                                       padding: const EdgeInsets.symmetric(
                                           vertical: 8, horizontal: 12),
@@ -102,7 +107,7 @@ class Profile extends StatelessWidget {
                                 )
                               ],
                             ),
-                            const SizedBox(height: 10),
+                            const SizedBox(height: 5),
                             const Text(
                               "Winnie Vasquez",
                               style: TextStyle(

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_e_commerce_app_provider/Provider/favorite.provider.dart';
+import 'package:flutter_e_commerce_app_provider/Provider/theme_provider.dart';
 import 'package:flutter_e_commerce_app_provider/constants.dart';
+import 'package:provider/provider.dart';
 
 class Favorite extends StatefulWidget {
   const Favorite({super.key});
@@ -12,15 +14,18 @@ class Favorite extends StatefulWidget {
 class _FavoriteState extends State<Favorite> {
   @override
   Widget build(BuildContext context) {
+    ThemeProvider themeProvider = Provider.of<ThemeProvider>(context);
+
     final provider = FavoriteProvider.of(context);
     final finalList = provider.favorites;
     return Scaffold(
-      backgroundColor: kcontentColor,
+      backgroundColor: const Color.fromARGB(255, 246, 246, 246),
       appBar: AppBar(
-        backgroundColor: kcontentColor,
+        backgroundColor:
+            themeProvider.getColorFromTheme('colorScheme.appbarColor'),
         title: const Text(
           "Favorite",
-          style: TextStyle(fontWeight: FontWeight.bold),
+          style: TextStyle(fontWeight: FontWeight.bold, color: Colors.white),
         ),
         centerTitle: true,
       ),
@@ -40,7 +45,8 @@ class _FavoriteState extends State<Favorite> {
                         width: double.infinity,
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(20),
-                          color: Colors.white,
+                          color: themeProvider.getColorFromTheme(
+                              'colorScheme.containerFadeColor'),
                         ),
                         padding: const EdgeInsets.all(10),
                         child: Row(
@@ -100,9 +106,10 @@ class _FavoriteState extends State<Favorite> {
                               finalList.removeAt(index);
                               setState(() {});
                             },
-                            icon: const Icon(
+                            icon: Icon(
                               Icons.delete,
-                              color: Colors.red,
+                              color: themeProvider
+                                  .getColorFromTheme('colorScheme.deleteColor'),
                               size: 22,
                             ),
                           ),

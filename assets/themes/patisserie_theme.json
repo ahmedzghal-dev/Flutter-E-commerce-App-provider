@@ -1,0 +1,27 @@
+{
+  "colorCategory": {
+    "patisserieColor": "#FF9F00",
+    "boutiqueColor": "#E70012",
+    "superatteColor": "#00B242",
+    "cafeColor": "#FF7101",
+    "pharmacieColor": "#4ca6a6"
+  },
+  "colorScheme": {
+    "background": "#ffa001",
+    "appbarColor": "#ffa001",
+    "primaryColor": "#ffa001",
+    "secondaryColor": "#ffffff",
+    "containerColor": "#ffa91a",
+    "containerFadeColor": "#ffebcc",
+    "textColor": "#000000",
+    "iconColor": "#ffa001",
+    "iconSecondaryColor": "#ffffff",
+    "buttonColor": "#ffa001",
+    "searchBarColor": "#ffd899",
+    "cardColor": "#ffd899",
+    "deleteColor": "#E70012"
+
+
+
+  }
+}

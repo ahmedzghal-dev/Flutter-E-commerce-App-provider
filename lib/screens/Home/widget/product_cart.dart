@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_e_commerce_app_provider/Provider/favorite.provider.dart';
+import 'package:flutter_e_commerce_app_provider/Provider/theme_provider.dart';
 import 'package:flutter_e_commerce_app_provider/constants.dart';
 import 'package:flutter_e_commerce_app_provider/models/product_model.dart';
 import 'package:flutter_e_commerce_app_provider/screens/Detail/detail_screen.dart';
+import 'package:provider/provider.dart';
 
 class ProductCart extends StatelessWidget {
   final Product product;
@@ -10,6 +12,7 @@ class ProductCart extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    ThemeProvider themeProvider = Provider.of<ThemeProvider>(context);
     final provider = FavoriteProvider.of(context);
     return GestureDetector(
       onTap: () {
@@ -26,7 +29,8 @@ class ProductCart extends StatelessWidget {
             width: double.infinity,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(20),
-              color: kcontentColor,
+              color: themeProvider
+                  .getColorFromTheme('colorScheme.containerFadeColor'),
             ),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -95,12 +99,13 @@ class ProductCart extends StatelessWidget {
                 child: Container(
                   width: 40,
                   height: 40,
-                  decoration: const BoxDecoration(
-                    borderRadius: BorderRadius.only(
+                  decoration: BoxDecoration(
+                    borderRadius: const BorderRadius.only(
                       topRight: Radius.circular(20),
                       bottomLeft: Radius.circular(20),
                     ),
-                    color: kprimaryColor,
+                    color: themeProvider
+                        .getColorFromTheme('colorScheme.containerColor'),
                   ),
                   child: Icon(
                     provider.isExist(product)

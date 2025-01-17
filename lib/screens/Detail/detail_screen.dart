@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_e_commerce_app_provider/Provider/theme_provider.dart';
 import 'package:flutter_e_commerce_app_provider/constants.dart';
 import 'package:flutter_e_commerce_app_provider/models/product_model.dart';
 import 'package:flutter_e_commerce_app_provider/screens/Detail/widget/addto_cart.dart';
@@ -6,6 +7,7 @@ import 'package:flutter_e_commerce_app_provider/screens/Detail/widget/descriptio
 import 'package:flutter_e_commerce_app_provider/screens/Detail/widget/detail_app_bar.dart';
 import 'package:flutter_e_commerce_app_provider/screens/Detail/widget/image_slider.dart';
 import 'package:flutter_e_commerce_app_provider/screens/Detail/widget/item_details.dart';
+import 'package:provider/provider.dart';
 
 class DetailScreen extends StatefulWidget {
   final Product product;
@@ -20,8 +22,11 @@ class _DetailScreenState extends State<DetailScreen> {
   int currentColor = 1;
   @override
   Widget build(BuildContext context) {
+    ThemeProvider themeProvider = Provider.of<ThemeProvider>(context);
+
     return Scaffold(
-      backgroundColor: kcontentColor,
+      backgroundColor:
+          themeProvider.getColorFromTheme('colorScheme.containerFadeColor'),
       //add to cart
       floatingActionButton: AddToCart(product: widget.product),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
@@ -34,7 +39,7 @@ class _DetailScreenState extends State<DetailScreen> {
                 product: widget.product,
               ),
               //detail image slider
-              MyImageSlider(
+              Myassetslider(
                 image: widget.product.image,
                 onChange: (index) {
                   setState(() {
@@ -54,9 +59,11 @@ class _DetailScreenState extends State<DetailScreen> {
                     decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(10),
                         color: currentImage == index
-                            ? Colors.black
+                            ? themeProvider
+                                .getColorFromTheme('colorScheme.buttonColor')
                             : Colors.transparent,
-                        border: Border.all(color: Colors.black)),
+                        border:
+                            Border.all(color: Colors.black.withOpacity(0.4))),
                   ),
                 ),
               ),

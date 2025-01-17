@@ -1,19 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_e_commerce_app_provider/Provider/cart_provider.dart';
-import 'package:flutter_e_commerce_app_provider/constants.dart';
+import 'package:flutter_e_commerce_app_provider/Provider/theme_provider.dart';
+import 'package:provider/provider.dart';
 
 class CheckOutBox extends StatelessWidget {
   const CheckOutBox({super.key});
 
   @override
   Widget build(BuildContext context) {
+    ThemeProvider themeProvider = Provider.of<ThemeProvider>(context);
+
     final provider = CartProvider.of(context);
     return Container(
       height: 300,
       width: double.infinity,
-      decoration: const BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.only(
+      decoration: BoxDecoration(
+        color: themeProvider.getColorFromTheme('colorScheme.containerColor'),
+        borderRadius: const BorderRadius.only(
           topRight: Radius.circular(30),
           bottomLeft: Radius.circular(30),
         ),
@@ -32,10 +35,11 @@ class CheckOutBox extends StatelessWidget {
                 horizontal: 15,
               ),
               filled: true,
-              fillColor: kcontentColor,
+              fillColor:
+                  themeProvider.getColorFromTheme('colorScheme.searchBarColor'),
               hintText: "Enter Discoutn Code",
               hintStyle: const TextStyle(
-                color: Colors.grey,
+                color: Colors.black45,
                 fontWeight: FontWeight.w600,
                 fontSize: 14,
               ),
@@ -46,7 +50,7 @@ class CheckOutBox extends StatelessWidget {
                   style: TextStyle(
                     fontWeight: FontWeight.bold,
                     fontSize: 20,
-                    color: kprimaryColor,
+                    color: Colors.white,
                   ),
                 ),
               ),
@@ -60,7 +64,7 @@ class CheckOutBox extends StatelessWidget {
                 "SbuTotal",
                 style: TextStyle(
                   fontWeight: FontWeight.bold,
-                  color: Colors.grey,
+                  color: Colors.white,
                   fontSize: 16,
                 ),
               ),
@@ -74,7 +78,9 @@ class CheckOutBox extends StatelessWidget {
             ],
           ),
           const SizedBox(height: 10),
-          const Divider(),
+          const Divider(
+            color: Colors.white,
+          ),
           const SizedBox(height: 10),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -98,21 +104,20 @@ class CheckOutBox extends StatelessWidget {
           const SizedBox(height: 20),
           ElevatedButton(
               style: ElevatedButton.styleFrom(
-                backgroundColor: kprimaryColor,
+                backgroundColor: themeProvider
+                    .getColorFromTheme('colorScheme.containerFadeColor'),
                 minimumSize: const Size(double.infinity, 55),
               ),
               onPressed: () {},
               child: const Text(
                 "Check Out",
                 style: TextStyle(
-                  fontWeight: FontWeight.bold,
-                  fontSize: 16,
-                  color: Colors.white,
-                ),
+                    fontWeight: FontWeight.bold,
+                    fontSize: 16,
+                    color: Colors.black),
               ))
         ],
       ),
     );
   }
 }
-// now we add the provider and display the total price

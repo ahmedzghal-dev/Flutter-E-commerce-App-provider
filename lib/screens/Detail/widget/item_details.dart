@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_e_commerce_app_provider/Provider/theme_provider.dart';
 import 'package:flutter_e_commerce_app_provider/constants.dart';
 import 'package:flutter_e_commerce_app_provider/models/product_model.dart';
+import 'package:provider/provider.dart';
 
 class ItemDetails extends StatelessWidget {
   final Product product;
@@ -8,6 +10,8 @@ class ItemDetails extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    ThemeProvider themeProvider = Provider.of<ThemeProvider>(context);
+
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -39,16 +43,18 @@ class ItemDetails extends StatelessWidget {
                       height: 23,
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(15),
-                        color: kprimaryColor,
+                        color: themeProvider
+                            .getColorFromTheme('colorScheme.buttonColor'),
                       ),
                       alignment: Alignment.center,
                       padding: const EdgeInsets.symmetric(horizontal: 5),
                       child: Row(
                         children: [
-                          const Icon(
+                          Icon(
                             Icons.star,
                             size: 14,
-                            color: Colors.white,
+                            color: themeProvider.getColorFromTheme(
+                                'colorScheme.iconSecondaryColor'),
                           ),
                           const SizedBox(width: 3),
                           Text(

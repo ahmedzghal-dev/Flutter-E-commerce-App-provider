@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_e_commerce_app_provider/Provider/cart_provider.dart';
+import 'package:flutter_e_commerce_app_provider/Provider/theme_provider.dart';
 import 'package:flutter_e_commerce_app_provider/constants.dart';
 import 'package:flutter_e_commerce_app_provider/models/product_model.dart';
+import 'package:provider/provider.dart';
 
 class AddToCart extends StatefulWidget {
   final Product product;
@@ -16,6 +18,8 @@ class _AddToCartState extends State<AddToCart> {
 
   @override
   Widget build(BuildContext context) {
+    ThemeProvider themeProvider = Provider.of<ThemeProvider>(context);
+
     final provider = CartProvider.of(context);
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
@@ -23,7 +27,7 @@ class _AddToCartState extends State<AddToCart> {
         height: 80,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(50),
-          color: Colors.black,
+          color: themeProvider.getColorFromTheme('colorScheme.containerColor'),
         ),
         padding: const EdgeInsets.symmetric(horizontal: 15),
         alignment: Alignment.center,
@@ -40,14 +44,15 @@ class _AddToCartState extends State<AddToCart> {
                 children: [
                   IconButton(
                     onPressed: () {
-                      if(currentIndex != 1){
+                      if (currentIndex != 1) {
                         setState(() {
                           currentIndex--;
                         });
                       }
                     },
                     icon: const Icon(Icons.remove),
-                    color: Colors.white,
+                    color: themeProvider
+                        .getColorFromTheme('colorScheme.iconSecondaryColor'),
                     iconSize: 18,
                   ),
                   const SizedBox(width: 3),
@@ -62,11 +67,12 @@ class _AddToCartState extends State<AddToCart> {
                   IconButton(
                     onPressed: () {
                       setState(() {
-                          currentIndex++;
-                        });
+                        currentIndex++;
+                      });
                     },
                     icon: const Icon(Icons.add),
-                    color: Colors.white,
+                    color: themeProvider
+                        .getColorFromTheme('colorScheme.iconSecondaryColor'),
                     iconSize: 18,
                   ),
                 ],
@@ -77,7 +83,7 @@ class _AddToCartState extends State<AddToCart> {
                 provider.toggleFavorite(widget.product);
                 const snackBar = SnackBar(
                   content: Text(
-                    "ya3tik sa7a!!!!",
+                    "Thank You",
                     style: TextStyle(
                       fontWeight: FontWeight.bold,
                       fontSize: 20,
@@ -91,15 +97,16 @@ class _AddToCartState extends State<AddToCart> {
               child: Container(
                 height: 55,
                 decoration: BoxDecoration(
-                  color: kprimaryColor,
+                  color: themeProvider
+                      .getColorFromTheme('colorScheme.containerFadeColor'),
                   borderRadius: BorderRadius.circular(50),
                 ),
                 alignment: Alignment.center,
                 padding: const EdgeInsets.symmetric(horizontal: 50),
                 child: const Text(
                   'Add To Cart',
-                  style: const TextStyle(
-                    color: Colors.white,
+                  style: TextStyle(
+                    color: Colors.black54,
                     fontWeight: FontWeight.bold,
                     fontSize: 15,
                   ),

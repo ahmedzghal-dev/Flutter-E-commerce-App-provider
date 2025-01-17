@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_e_commerce_app_provider/Provider/cart_provider.dart';
+import 'package:flutter_e_commerce_app_provider/Provider/theme_provider.dart';
 import 'package:flutter_e_commerce_app_provider/constants.dart';
 import 'package:flutter_e_commerce_app_provider/screens/Cart/check_out.dart';
 import 'package:flutter_e_commerce_app_provider/screens/nav_bar_screen.dart';
+import 'package:provider/provider.dart';
 
 class CartScreen extends StatefulWidget {
   const CartScreen({super.key});
@@ -14,6 +16,8 @@ class CartScreen extends StatefulWidget {
 class _CartScreenState extends State<CartScreen> {
   @override
   Widget build(BuildContext context) {
+    ThemeProvider themeProvider = Provider.of<ThemeProvider>(context);
+
     final provider = CartProvider.of(context);
     final finalList = provider.cart;
     // quantity add or remove
@@ -26,14 +30,19 @@ class _CartScreenState extends State<CartScreen> {
                 : provider.decrementQtn(index);
           });
         },
-        child: Icon(icon, size: 20,),
+        child: Icon(
+          icon,
+          size: 20,
+          color: themeProvider.getColorFromTheme('colorScheme.iconColor'),
+        ),
       );
     }
 
     return Scaffold(
       // total check out
       bottomSheet: const CheckOutBox(),
-      backgroundColor: kcontentColor,
+      backgroundColor:
+          themeProvider.getColorFromTheme('colorScheme.secondaryColor'),
       body: SafeArea(
         child: Column(
           children: [
@@ -44,7 +53,8 @@ class _CartScreenState extends State<CartScreen> {
                 children: [
                   IconButton(
                     style: IconButton.styleFrom(
-                      backgroundColor: Colors.white,
+                      backgroundColor: themeProvider
+                          .getColorFromTheme('colorScheme.containerFadeColor'),
                       padding: const EdgeInsets.all(15),
                     ),
                     onPressed: () {
@@ -80,7 +90,8 @@ class _CartScreenState extends State<CartScreen> {
                           width: double.infinity,
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(20),
-                            color: Colors.white,
+                            color: themeProvider.getColorFromTheme(
+                                'colorScheme.containerFadeColor'),
                           ),
                           padding: const EdgeInsets.all(20),
                           child: Row(
@@ -140,9 +151,10 @@ class _CartScreenState extends State<CartScreen> {
                                 finalList.removeAt(index);
                                 setState(() {});
                               },
-                              icon: const Icon(
+                              icon: Icon(
                                 Icons.delete,
-                                color: Colors.red,
+                                color: themeProvider.getColorFromTheme(
+                                    'colorScheme.deleteColor'),
                                 size: 22,
                               ),
                             ),
@@ -150,9 +162,11 @@ class _CartScreenState extends State<CartScreen> {
                             Container(
                               height: 40,
                               decoration: BoxDecoration(
-                                color: kcontentColor,
+                                color: themeProvider.getColorFromTheme(
+                                    'colorScheme.containerFadeColor'),
                                 border: Border.all(
-                                  color: Colors.grey.shade200,
+                                  color: themeProvider.getColorFromTheme(
+                                      'colorScheme.containerColor'),
                                   width: 2,
                                 ),
                                 borderRadius: BorderRadius.circular(20),
@@ -166,7 +180,7 @@ class _CartScreenState extends State<CartScreen> {
                                     cartItem.quantity.toString(),
                                     style: const TextStyle(
                                       fontWeight: FontWeight.bold,
-                                      color: Colors.black,
+                                      color: Colors.white,
                                     ),
                                   ),
                                   const SizedBox(width: 10),

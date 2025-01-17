@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_e_commerce_app_provider/Provider/favorite.provider.dart';
-import 'package:flutter_e_commerce_app_provider/constants.dart';
+import 'package:flutter_e_commerce_app_provider/Provider/theme_provider.dart';
 import 'package:flutter_e_commerce_app_provider/models/product_model.dart';
+import 'package:provider/provider.dart';
 
 class DetailAppBar extends StatelessWidget {
   final Product product;
@@ -9,6 +10,8 @@ class DetailAppBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    ThemeProvider themeProvider = Provider.of<ThemeProvider>(context);
+
     final provider = FavoriteProvider.of(context);
 
     return Padding(
@@ -17,18 +20,20 @@ class DetailAppBar extends StatelessWidget {
         children: [
           IconButton(
             style: IconButton.styleFrom(
-              backgroundColor: Colors.white,
+              backgroundColor:
+                  themeProvider.getColorFromTheme('colorScheme.iconColor'),
               padding: const EdgeInsets.all(15),
             ),
             onPressed: () {
               Navigator.pop(context);
             },
-            icon: const Icon(Icons.arrow_back_ios),
+            icon: Icon(Icons.arrow_back_ios),
           ),
           const Spacer(),
           IconButton(
             style: IconButton.styleFrom(
-              backgroundColor: Colors.white,
+              backgroundColor:
+                  themeProvider.getColorFromTheme('colorScheme.iconColor'),
               padding: const EdgeInsets.all(15),
             ),
             onPressed: () {},
@@ -37,7 +42,8 @@ class DetailAppBar extends StatelessWidget {
           const SizedBox(width: 10),
           IconButton(
             style: IconButton.styleFrom(
-              backgroundColor: Colors.white,
+              backgroundColor:
+                  themeProvider.getColorFromTheme('colorScheme.iconColor'),
               padding: const EdgeInsets.all(15),
             ),
             onPressed: () {

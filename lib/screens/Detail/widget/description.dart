@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_e_commerce_app_provider/Provider/theme_provider.dart';
 import 'package:flutter_e_commerce_app_provider/constants.dart';
+import 'package:provider/provider.dart';
 
 class Description extends StatelessWidget {
   final String description;
@@ -7,6 +9,8 @@ class Description extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    ThemeProvider themeProvider = Provider.of<ThemeProvider>(context);
+
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -16,7 +20,8 @@ class Description extends StatelessWidget {
             Container(
               width: 120,
               decoration: BoxDecoration(
-                color: kprimaryColor,
+                color: themeProvider
+                    .getColorFromTheme('colorScheme.containerColor'),
                 borderRadius: BorderRadius.circular(20),
               ),
               alignment: Alignment.center,

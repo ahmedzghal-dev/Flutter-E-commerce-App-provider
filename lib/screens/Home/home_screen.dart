@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_e_commerce_app_provider/Provider/theme_provider.dart';
 import 'package:flutter_e_commerce_app_provider/models/category_model.dart';
 import 'package:flutter_e_commerce_app_provider/models/product_model.dart';
 import 'package:flutter_e_commerce_app_provider/screens/Home/widget/home_app_bar.dart';
 import 'package:flutter_e_commerce_app_provider/screens/Home/widget/image_slider.dart';
 import 'package:flutter_e_commerce_app_provider/screens/Home/widget/product_cart.dart';
 import 'package:flutter_e_commerce_app_provider/screens/Home/widget/search_bar.dart';
+import 'package:provider/provider.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -18,6 +20,8 @@ class _HomeScreenState extends State<HomeScreen> {
   int selectedIndex = 0;
   @override
   Widget build(BuildContext context) {
+    ThemeProvider themeProvider = Provider.of<ThemeProvider>(context);
+
     List<List<Product>> selectCategories = [
       all,
       shoes,
@@ -42,7 +46,7 @@ class _HomeScreenState extends State<HomeScreen> {
               const MySearchBar(),
               const SizedBox(height: 20),
               // image slider
-              ImageSlider(
+              assetslider(
                 currentSlide: currentSlide,
                 onChange: (value) {
                   setState(
@@ -72,7 +76,8 @@ class _HomeScreenState extends State<HomeScreen> {
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(15),
                           color: selectedIndex == index
-                              ? Colors.blue[200]
+                              ? themeProvider.getColorFromTheme(
+                                  'colorScheme.containerFadeColor')
                               : Colors.transparent,
                         ),
                         child: Column(

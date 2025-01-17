@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_e_commerce_app_provider/Provider/theme_provider.dart';
 import 'package:flutter_e_commerce_app_provider/constants.dart';
 import 'package:flutter_e_commerce_app_provider/screens/Cart/cart_screen.dart';
 import 'package:flutter_e_commerce_app_provider/screens/HOME/home_screen.dart';
 import 'package:flutter_e_commerce_app_provider/screens/Favorite/favorite.dart';
+import 'package:flutter_e_commerce_app_provider/screens/TestScreen/test_screen.dart';
 import 'package:flutter_e_commerce_app_provider/screens/profile/profile.dart';
+import 'package:provider/provider.dart';
 
 class BottomNavBar extends StatefulWidget {
   const BottomNavBar({super.key});
@@ -15,7 +18,7 @@ class BottomNavBar extends StatefulWidget {
 class _BottomNavBarState extends State<BottomNavBar> {
   int currentIndex = 2;
   List screens = const [
-    Scaffold(),
+    TestScreen(),
     Favorite(),
     HomeScreen(),
     CartScreen(),
@@ -23,6 +26,8 @@ class _BottomNavBarState extends State<BottomNavBar> {
   ];
   @override
   Widget build(BuildContext context) {
+    ThemeProvider themeProvider = Provider.of<ThemeProvider>(context);
+
     return Scaffold(
       floatingActionButton: FloatingActionButton(
         onPressed: () {
@@ -31,7 +36,8 @@ class _BottomNavBarState extends State<BottomNavBar> {
           });
         },
         shape: const CircleBorder(),
-        backgroundColor: kprimaryColor,
+        backgroundColor:
+            themeProvider.getColorFromTheme('colorScheme.buttonColor'),
         child: const Icon(
           Icons.home,
           color: Colors.white,
@@ -59,7 +65,9 @@ class _BottomNavBarState extends State<BottomNavBar> {
               icon: Icon(
                 Icons.grid_view_outlined,
                 size: 30,
-                color: currentIndex == 0 ? kprimaryColor : Colors.grey.shade400,
+                color: currentIndex == 0
+                    ? themeProvider.getColorFromTheme('colorScheme.iconColor')
+                    : Colors.grey.shade400,
               ),
             ),
             IconButton(
@@ -71,7 +79,9 @@ class _BottomNavBarState extends State<BottomNavBar> {
               icon: Icon(
                 Icons.favorite_border,
                 size: 30,
-                color: currentIndex == 1 ? kprimaryColor : Colors.grey.shade400,
+                color: currentIndex == 1
+                    ? themeProvider.getColorFromTheme('colorScheme.iconColor')
+                    : Colors.grey.shade400,
               ),
             ),
             const SizedBox(width: 15),
@@ -84,7 +94,9 @@ class _BottomNavBarState extends State<BottomNavBar> {
               icon: Icon(
                 Icons.shopping_cart_outlined,
                 size: 30,
-                color: currentIndex == 3 ? kprimaryColor : Colors.grey.shade400,
+                color: currentIndex == 3
+                    ? themeProvider.getColorFromTheme('colorScheme.iconColor')
+                    : Colors.grey.shade400,
               ),
             ),
             IconButton(
@@ -96,7 +108,9 @@ class _BottomNavBarState extends State<BottomNavBar> {
               icon: Icon(
                 Icons.person_outline,
                 size: 30,
-                color: currentIndex == 4 ? kprimaryColor : Colors.grey.shade400,
+                color: currentIndex == 4
+                    ? themeProvider.getColorFromTheme('colorScheme.iconColor')
+                    : Colors.grey.shade400,
               ),
             ),
           ],
